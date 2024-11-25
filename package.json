@@ -2,15 +2,18 @@
   "name": "@markemer/source",
   "workspaces": [
     "upstream-updates",
-    "sms-twillio"
+    "sms-twillio",
+    "toolkit"
   ],
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build-all": "npx nx run-many -t bundle"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "devDependencies": {
     "tslib": "^2.8.0",
     "typescript": "^5.6.3",
