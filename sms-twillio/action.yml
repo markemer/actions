@@ -1,0 +1,24 @@
+name: "Send SMS"
+description: "Send text message with Twillio"
+author: "Mark E. Anderson"
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: "smartphone"
+  color: "orange"
+
+# Define your inputs here.
+inputs:
+  repo:
+    description: "Repository Name"
+    required: true
+  op-token:
+    description: "1Password Service Account Token"
+    required: true
+  branch:
+    description: "Branch to update"
+    default: "main"
+
+runs:
+  using: node20
+  main: dist/index.js
