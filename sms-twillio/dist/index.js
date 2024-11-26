@@ -25682,6 +25682,9 @@ const core = __importStar(__nccwpck_require__(6618));
  */
 async function run() {
     try {
+        core.setSecret("op-token");
+        core.setSecret("fromPhoneNumber");
+        core.setSecret("toPhoneNumber");
         const op_token = core.getInput("op-token");
         const fromPhoneNumber = core.getInput("fromPhoneNumber");
         const toPhoneNumber = core.getInput("toPhoneNumber");

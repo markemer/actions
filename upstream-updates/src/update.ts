@@ -1,4 +1,4 @@
-import { getCredential } from "@markemer/toolkit"
+import { getCredential } from "@markemer/toolkit";
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { RequestError } from "@octokit/request-error";
@@ -12,8 +12,7 @@ export async function update(
   repo: string,
   options: UpdateOptions,
 ): Promise<void> {
-
-  const token = await getCredential(options.token, "macports_update_token")
+  const token = await getCredential(options.token, "macports_update_token");
 
   const username = github.context.repo.owner;
 

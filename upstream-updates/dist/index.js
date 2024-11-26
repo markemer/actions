@@ -31241,6 +31241,52 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 7264:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(202), exports);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 202:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getCredential = getCredential;
+const sdk_1 = __nccwpck_require__(6056);
+async function getCredential(token, name) {
+    const client = await (0, sdk_1.createClient)({
+        auth: token,
+        integrationName: "Update Upstream Integration",
+        integrationVersion: "0.1.0",
+    });
+    const credential = client.secrets.resolve(`op://cloud/${name}/credential`);
+    return credential;
+}
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ 396:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -31346,17 +31392,12 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.update = update;
-const sdk_1 = __nccwpck_require__(6056);
+const toolkit_1 = __nccwpck_require__(7264);
 const core = __importStar(__nccwpck_require__(6618));
 const github = __importStar(__nccwpck_require__(2146));
 const request_error_1 = __nccwpck_require__(5182);
 async function update(repo, options) {
-    const client = await (0, sdk_1.createClient)({
-        auth: options.token,
-        integrationName: "Update Upstream Integration",
-        integrationVersion: "0.1.0",
-    });
-    const token = await client.secrets.resolve("op://cloud/macports_update_token/credential");
+    const token = await (0, toolkit_1.getCredential)(options.token, "macports_update_token");
     const username = github.context.repo.owner;
     const octokit = github.getOctokit(token);
     try {

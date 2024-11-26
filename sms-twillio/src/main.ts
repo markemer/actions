@@ -7,15 +7,13 @@ import * as twillio from "twilio";
  */
 export async function run(): Promise<void> {
   try {
-    core.setSecret("op-token")
-    core.setSecret("fromPhoneNumber")
-    core.setSecret("toPhoneNumber")
+    core.setSecret("op-token");
+    core.setSecret("fromPhoneNumber");
+    core.setSecret("toPhoneNumber");
 
     const op_token: string = core.getInput("op-token");
     const fromPhoneNumber: string = core.getInput("fromPhoneNumber");
     const toPhoneNumber: string = core.getInput("toPhoneNumber");
     const message: string = core.getInput("message");
-
-
   } catch (error) {}
 }
