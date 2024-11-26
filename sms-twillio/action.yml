@@ -9,15 +9,18 @@ branding:
 
 # Define your inputs here.
 inputs:
-  repo:
-    description: "Repository Name"
-    required: true
   op-token:
     description: "1Password Service Account Token"
     required: true
-  branch:
-    description: "Branch to update"
-    default: "main"
+  fromPhoneNumber:
+    description: "Number to send message from"
+    required: true
+  toPhoneNumber:
+    description: "Number to send message to"
+    required: true
+  message:
+    description: "Message"
+    required: true
 
 runs:
   using: node20

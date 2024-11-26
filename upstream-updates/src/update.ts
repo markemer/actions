@@ -1,4 +1,4 @@
-import { createClient } from "@1password/sdk";
+import { getCredential } from "@markemer/toolkit"
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { RequestError } from "@octokit/request-error";
@@ -12,15 +12,8 @@ export async function update(
   repo: string,
   options: UpdateOptions,
 ): Promise<void> {
-  const client = await createClient({
-    auth: options.token,
-    integrationName: "Update Upstream Integration",
-    integrationVersion: "0.1.0",
-  });
 
-  const token = await client.secrets.resolve(
-    "op://cloud/macports_update_token/credential",
-  );
+  const token = await getCredential(options.token, "macports_update_token")
 
   const username = github.context.repo.owner;
 
