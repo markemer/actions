@@ -7,6 +7,7 @@
     },
     "bundle": {
       "outputs": ["{projectRoot}/dist"],
+      "dependsOn": ["^build"],
       "cache": true
     },
     "package": {
