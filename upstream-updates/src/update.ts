@@ -1,4 +1,4 @@
-import { getCredential } from "@markemer/toolkit";
+import { CloudSecret } from "@markemer/toolkit";
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { RequestError } from "@octokit/request-error";
@@ -12,7 +12,9 @@ export async function update(
   repo: string,
   options: UpdateOptions,
 ): Promise<void> {
-  const token = await getCredential(options.token, "macports_update_token");
+  const secrets = new CloudSecret(options.token);
+
+  const token = await secrets.getCredential("macports_update_token");
 
   const username = github.context.repo.owner;
 

@@ -4,29 +4,30 @@
     "description": "Actions toolkit",
     "homepage": "https://github.com/markemer/actions",
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/markemer/actions.git",
-      "directory": "toolkit"
+        "type": "git",
+        "url": "git+https://github.com/markemer/actions.git",
+        "directory": "toolkit"
     },
     "bugs": {
-      "url": "https://github.com/markemer/actions/issues"
+        "url": "https://github.com/markemer/actions/issues"
     },
     "license": "GPL-3.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
-      "dist",
-      "!.DS_Store"
+        "dist",
+        "!.DS_Store"
     ],
     "publishConfig": {
-      "access": "public"
+        "access": "public"
     },
     "scripts": {
-      "build": "tsc -p tsconfig.json"
+        "build": "tsc -p tsconfig.json"
     },
     "dependencies": {
+        "@1password/sdk": "^0.1.4"
     },
     "devDependencies": {
-      "@types/node": "^16.18.112"
+        "@types/node": "^16.18.112"
     }
-  }
+}

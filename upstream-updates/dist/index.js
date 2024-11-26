@@ -31272,17 +31272,26 @@ __exportStar(__nccwpck_require__(202), exports);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getCredential = getCredential;
+exports.CloudSecret = void 0;
 const sdk_1 = __nccwpck_require__(6056);
-async function getCredential(token, name) {
-    const client = await (0, sdk_1.createClient)({
-        auth: token,
-        integrationName: "Update Upstream Integration",
-        integrationVersion: "0.1.0",
-    });
-    const credential = client.secrets.resolve(`op://cloud/${name}/credential`);
-    return credential;
+class CloudSecret {
+    token;
+    constructor(token) {
+        this.token = token;
+    }
+    async getField(name, field) {
+        const client = await (0, sdk_1.createClient)({
+            auth: this.token,
+            integrationName: "Update Upstream Integration",
+            integrationVersion: "0.1.0",
+        });
+        return client.secrets.resolve(`op://cloud/${name}/${field}`);
+    }
+    async getCredential(name) {
+        return this.getField(name, "credential");
+    }
 }
+exports.CloudSecret = CloudSecret;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -31397,7 +31406,8 @@ const core = __importStar(__nccwpck_require__(6618));
 const github = __importStar(__nccwpck_require__(2146));
 const request_error_1 = __nccwpck_require__(5182);
 async function update(repo, options) {
-    const token = await (0, toolkit_1.getCredential)(options.token, "macports_update_token");
+    const secrets = new toolkit_1.CloudSecret(options.token);
+    const token = await secrets.getCredential("macports_update_token");
     const username = github.context.repo.owner;
     const octokit = github.getOctokit(token);
     try {
