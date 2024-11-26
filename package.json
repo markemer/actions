@@ -2,7 +2,7 @@
   "name": "@markemer/source",
   "workspaces": [
     "upstream-updates",
-    "sms-twillio",
+    "sms-twilio",
     "toolkit"
   ],
   "version": "0.1.0",

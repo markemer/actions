@@ -1,5 +1,5 @@
 {
-  "name": "sms-twillio",
+  "name": "sms-twilio",
   "description": "Send SMS via Twillio",
   "version": "0.1.0",
   "author": "Mark E. Anderson",
