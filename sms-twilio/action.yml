@@ -1,25 +1,25 @@
-name: "Send SMS"
-description: "Send text message with Twillio"
-author: "Mark E. Anderson"
+name: 'Send SMS'
+description: 'Send text message with Twillio'
+author: 'Mark E. Anderson'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: "smartphone"
-  color: "orange"
+  icon: 'smartphone'
+  color: 'orange'
 
 # Define your inputs here.
 inputs:
   op-token:
-    description: "1Password Service Account Token"
+    description: '1Password Service Account Token'
     required: true
   fromPhoneNumber:
-    description: "Number to send message from"
+    description: 'Number to send message from'
     required: true
   toPhoneNumber:
-    description: "Number to send message to"
+    description: 'Number to send message to'
     required: true
   message:
-    description: "Message"
+    description: 'Message'
     required: true
 
 runs:

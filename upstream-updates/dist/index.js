@@ -31344,10 +31344,10 @@ const update_1 = __nccwpck_require__(5552);
  */
 async function run() {
     try {
-        core.setSecret("op-token");
-        const repo_name = core.getInput("repo");
-        const op_token = core.getInput("op-token");
-        const branch = core.getInput("branch");
+        core.setSecret('op-token');
+        const repo_name = core.getInput('repo');
+        const op_token = core.getInput('op-token');
+        const branch = core.getInput('branch');
         core.debug(`Updating ${repo_name}:${branch} from upstream fork`);
         await (0, update_1.update)(repo_name, { token: op_token, branch: branch });
     }
@@ -31407,7 +31407,7 @@ const github = __importStar(__nccwpck_require__(2146));
 const request_error_1 = __nccwpck_require__(5182);
 async function update(repo, options) {
     const secrets = new toolkit_1.CloudSecret(options.token);
-    const token = await secrets.getCredential("macports_update_token");
+    const token = await secrets.getCredential('macports_update_token');
     const username = github.context.repo.owner;
     const octokit = github.getOctokit(token);
     try {
@@ -31417,18 +31417,18 @@ async function update(repo, options) {
             branch: options.branch,
         });
         const message = updated_repo.data.message;
-        if (typeof message == "string") {
+        if (typeof message == 'string') {
             core.info(message);
         }
         else {
-            core.warning("No message from merge");
+            core.warning('No message from merge');
         }
     }
     catch (error) {
         if (error instanceof request_error_1.RequestError) {
             switch (error.status) {
                 case 409:
-                    core.setFailed("Merge Conflict with Upstream");
+                    core.setFailed('Merge Conflict with Upstream');
                     break;
                 default:
                     core.setFailed(error.message);

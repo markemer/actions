@@ -1,7 +1,7 @@
-import { CloudSecret } from "@markemer/toolkit";
-import * as core from "@actions/core";
-import * as github from "@actions/github";
-import { RequestError } from "@octokit/request-error";
+import { CloudSecret } from '@markemer/toolkit';
+import * as core from '@actions/core';
+import * as github from '@actions/github';
+import { RequestError } from '@octokit/request-error';
 
 export interface UpdateOptions {
   token: string;
@@ -14,7 +14,7 @@ export async function update(
 ): Promise<void> {
   const secrets = new CloudSecret(options.token);
 
-  const token = await secrets.getCredential("macports_update_token");
+  const token = await secrets.getCredential('macports_update_token');
 
   const username = github.context.repo.owner;
 
@@ -29,16 +29,16 @@ export async function update(
 
     const message = updated_repo.data.message;
 
-    if (typeof message == "string") {
+    if (typeof message == 'string') {
       core.info(message);
     } else {
-      core.warning("No message from merge");
+      core.warning('No message from merge');
     }
   } catch (error) {
     if (error instanceof RequestError) {
       switch (error.status) {
         case 409:
-          core.setFailed("Merge Conflict with Upstream");
+          core.setFailed('Merge Conflict with Upstream');
           break;
         default:
           core.setFailed(error.message);

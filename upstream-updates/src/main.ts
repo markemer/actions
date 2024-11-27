@@ -1,6 +1,6 @@
-import * as core from "@actions/core";
+import * as core from '@actions/core';
 
-import { update } from "./update";
+import { update } from './update';
 
 /**
  * The main function for the action.
@@ -8,11 +8,11 @@ import { update } from "./update";
  */
 export async function run(): Promise<void> {
   try {
-    core.setSecret("op-token");
+    core.setSecret('op-token');
 
-    const repo_name: string = core.getInput("repo");
-    const op_token: string = core.getInput("op-token");
-    const branch: string = core.getInput("branch");
+    const repo_name: string = core.getInput('repo');
+    const op_token: string = core.getInput('op-token');
+    const branch: string = core.getInput('branch');
 
     core.debug(`Updating ${repo_name}:${branch} from upstream fork`);
     await update(repo_name, { token: op_token, branch: branch });

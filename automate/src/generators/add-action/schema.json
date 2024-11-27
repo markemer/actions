@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "AddAction",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What package name would you like to use?"
+    },
+    "pretty_name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What display name would you like to use?"
+    },
+    "description": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What description would you like to use?"
+    }
+  },
+  "required": ["name"]
+}

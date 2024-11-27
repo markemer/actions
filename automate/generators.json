@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "add-action": {
+      "factory": "./src/generators/add-action/generator",
+      "schema": "./src/generators/add-action/schema.json",
+      "description": "add-action generator"
+    }
+  }
+}
