@@ -2,8 +2,8 @@
   "name": "@markemer/automate",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "20.1.3",
-    "tslib": "^2.3.0"
+    "@nx/devkit": "20.2.1",
+    "@actions/core": "1.11.1"
   },
   "type": "commonjs",
   "main": "./src/index.js",

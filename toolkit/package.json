@@ -25,9 +25,9 @@
         "build": "tsc -p tsconfig.json"
     },
     "dependencies": {
-        "@1password/sdk": "^0.1.4"
+        "@1password/sdk": "0.1.5"
     },
     "devDependencies": {
-        "@types/node": "^16.18.112"
+        "@types/node": "22.10.1"
     }
 }
