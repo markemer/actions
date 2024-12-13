@@ -11,7 +11,10 @@ branding:
 inputs:
   repo:
     description: 'Repository Name'
-    required: true
+    required: false
+  repo-file:
+    description: 'Repository List JSON file'
+    required: false
   op-token:
     description: '1Password Service Account Token'
     required: true
